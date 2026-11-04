@@ -90,7 +90,7 @@ def build_snap(backend: Backend, cfg: BuildConfig) -> None:
         "snap wait system seed.loaded && snap install snapcraft --classic && "
         f"mkdir -p snap && cat > snap/snapcraft.yaml <<'EOF'\n{snapcraft}EOF\n"
         # snapcraft refuses to write outside the project tree, so pack locally then move.
-        f"snapcraft pack --destructive-mode --output snap-out/ && mv snap-out/*.snap {OUT}/"
+        f"snapcraft pack --destructive-mode && mv ./*.snap {OUT}/"
     )
 
 
